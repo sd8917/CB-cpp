@@ -2,25 +2,26 @@
 
 using namespace std;
 
-char keyboard[][10] = {"","","ABC","DEF","GHI","JKL","MNO","PQRS","TUV","WXYZ"};
+char keypad[][10] = {"","","ABC","DEF","GHI","JKL","MNO","PQRS","TUV","WXYZ"};
 
 void printKeypadString(char *in, char *out ,int i,int j){
     //Base Case
-    if(in[j] == '\0'){
+    if(in[i] == '\0'){
         out[j] = '\0';
-        cout<<"out"<<endl;
+        cout<<out<<", ";
         return;
     }
 
     //Rec Case
     int digit = in[i]-'0';
 
-    if(digit ==1 || digit ==0){
+    if(digit ==1 || digit==0){
         printKeypadString(in,out,i+1,j);
     }
 
-    for(int k=0; k<=keyboard[digit][k]!='\0'; k++){
-        out[j] = keyboard[digit][k];
+
+    for(int k=0; k<=keypad[digit][k]!='\0'; k++){
+        out[j] = keypad[digit][k];
         printKeypadString(in,out,i+1,j+1);
     }
 
